@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
+ @Output()  public exibieTela:EventEmitter<string>=new EventEmitter<string>();
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+public valorTelaCadastro():void{
+
+this.exibieTela.emit('telaCadastro')
+
+
+}
 
 }

@@ -1,13 +1,22 @@
-<div class="container">
+<div id="centro" class="container">
     <div class="row">
-        <div class="col-sm-6 d-flex justify-content-end">
+        <div class="col-sm-6    d-md-block d-sm-none  d-flex justify-content-end" [@animarBanner]="estadoBanner">
             <p>
-                <app-banner></app-banner>></p>
+                <app-banner></app-banner>
+            </p>
         </div>
 
-        <div class="col-sm-6 d-flex justify-content-start">
+        <div *ngIf="cadastroOuLoguin===true" class="col-sm-6 d-flex justify-content-start" [@animarBanner]="estadoLoguin">
             <p>
-                <app-login></app-login>></p>
+                <app-login (exibieTela)="exibieTela($event)"></app-login>
+            </p>
+        </div>
+
+        <div *ngIf="cadastroOuLoguin===false" class="col-sm-6 d-flex justify-content-start" [@animarBanner]="estadoLoguin">
+            <p>
+
+                <app-cadastro (exibieTela)="exibieTela($event)"></app-cadastro>
+            </p>
         </div>
     </div>
 </div>
