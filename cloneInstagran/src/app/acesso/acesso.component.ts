@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -19,9 +19,26 @@ style({opacity:0,transform:'translate(-80px,-10px)'
 animate('500ms 1s ease-in-out')
    ]),
    transition('void => criadoLoguin',[
-    style({opacity:0,transform:'translate(50px,30px)'
+    style({opacity:0,transform:'translate(50px,10px)'
     }),
-    animate('500ms 1s ease-in-out')
+    animate('1.5s 1s ease-in-out',keyframes([
+      style({offset:0.68,opacity:1 ,transform:'translateY(-20px)'}),
+      style({offset:0.70,opacity:1 ,transform:'translateY(20px)'}),
+      style({offset:0.72,opacity:1 ,transform:'translateY(-20px)'}),
+      style({offset:0.74,opacity:1 ,transform:'translateY(20px)'}),
+      style({offset:0.76,opacity:1 ,transform:'translateY(-20px)'}),
+      style({offset:0.78,opacity:1 ,transform:'translateY(20px)'}),
+      style({offset:0.80,opacity:1 ,transform:'translateY(-20px)'}),
+      style({offset:0.84,opacity:1 ,transform:'translateY(20px)'}),
+      style({offset:0.86,opacity:1 ,transform:'translateY(-20px)'}),
+      style({offset:0.88,opacity:1 ,transform:'translateY(20px)'}),
+      style({offset:0.90,opacity:1 ,transform:'translateY(-20px)'}),
+      style({offset:0.92,opacity:1 ,transform:'translateY(20px)'}),
+      style({offset:0.94,opacity:1 ,transform:'translateY(-20px)'}),
+      style({offset:0.96,opacity:1 ,transform:'translateY(20px)'}),
+      style({offset:0.98,opacity:1 ,transform:'translateY(-20px)'}),
+
+    ]))
        ])
  ])
 
