@@ -65,7 +65,7 @@ public cadastroOuLoguin: boolean=true
 
   public exibieTela (event:string){
 
-    this.cadastroOuLoguin=event ==='telaLoguin' ?this.cadastroOuLoguin=false:this.cadastroOuLoguin=true
+    this.cadastroOuLoguin=event ==='telaLoguin' ?this.cadastroOuLoguin=true:this.cadastroOuLoguin=false
 console.log(this.cadastroOuLoguin)
 
 

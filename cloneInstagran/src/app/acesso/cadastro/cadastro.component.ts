@@ -35,16 +35,19 @@ this.formulario.value.email,
 this.formulario.value.senha,
 this.formulario.value.nome_completo,
 this.formulario.value.nome_usuario,
+)
 
+this.authService.registrarUsuario(usuario).then(
+  ()=> {
 
+this.valorTelaCadastro()
 
+  }
 
 )
 
 
 
-
-this.authService.registrarUsuario(usuario)
 
 }
 
@@ -52,7 +55,7 @@ this.authService.registrarUsuario(usuario)
 
 public valorTelaCadastro():void{
 
-this.exibieTela.emit('telaCadastro')
+this.exibieTela.emit('telaLoguin')
 
 
 }

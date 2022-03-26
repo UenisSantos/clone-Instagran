@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 
 public telaLoguin():void{
 
-this.exibieTela.emit('telaLoguin')
+this.exibieTela.emit('telaCadastro')
 }
 
 
@@ -32,14 +32,12 @@ public formulario:FormGroup= new FormGroup({
 
 public logarUsuario():void{
 
+  let email=this.formulario.value.email;
+  let senha=this.formulario.value.senha
 
-  let usuario:Usuario=new Usuario(
-this.formulario.value.email,
-this.formulario.value.senha
-  )
-console.log('classe login', usuario)
 
-this.authService.registrarUsuario(usuario)
+this.authService.logarUsuario(email,senha)
+
 
 }
 

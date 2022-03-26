@@ -10,6 +10,8 @@ import { CadastroComponent } from './acesso/cadastro/cadastro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
+import { HomeComponent } from './acesso/home/home.component';
+import { PublicacoesComponent } from './acesso/home/publicacoes/publicacoes.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { AuthService } from './auth.service';
     BannerComponent,
     LoginComponent,
     CadastroComponent,
+    HomeComponent,
+    PublicacoesComponent,
 
 
   ],
