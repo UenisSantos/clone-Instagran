@@ -2,10 +2,16 @@ import { Usuario } from "./usuario.model";
 import { getAuth,signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import{getDatabase , ref, set}from"firebase/database"
 ;
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+
+
+@Injectable()
 export class AuthService{
+auth: any;
+public idToken:any;
 
-
-
+constructor(private router: Router){}
 
 public registrarUsuario(usuario:Usuario):Promise<any>{
 
@@ -34,15 +40,22 @@ usuario
 
 
 public logarUsuario(email:string ,senha:string){
-  console.log(email, senha)
 
 
-const auth = getAuth();
+let auth = getAuth();
 signInWithEmailAndPassword(auth, email, senha)
   .then((userCredential) => {
     // Signed in
-    const user = userCredential.user;
-     console.log(user)
+    let user = userCredential.user;
+     console.log('esse é um print de usuario ',user)
+
+ user.getIdToken().then(
+  (idToken:any)=>{  this.idToken=idToken
+    localStorage.setItem( 'idToken', this.idToken)
+this.router.navigate(['/home'])
+
+  }
+)
 
   })
   .catch((error) => {
@@ -52,6 +65,25 @@ signInWithEmailAndPassword(auth, email, senha)
 
     console.log (`ouve o seguinte erro`,errorCode,errorMessage)
   });
+
+
+}
+
+
+
+public validarRouter(){
+if(this.idToken===undefined&& localStorage.getItem('idToken') !== null){
+
+this.idToken= localStorage.getItem('idToken')
+
+}
+
+
+
+
+return this.idToken!==null&& this.idToken!==undefined;
+
+
 }
 
 

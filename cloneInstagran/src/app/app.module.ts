@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { HomeComponent } from './acesso/home/home.component';
 import { PublicacoesComponent } from './acesso/home/publicacoes/publicacoes.component';
+import { routeGuardService } from './router-guard-service';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { PublicacoesComponent } from './acesso/home/publicacoes/publicacoes.comp
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule
+
   ],
-  providers: [AuthService],
+  providers: [AuthService ,routeGuardService ,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
